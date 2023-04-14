@@ -75,8 +75,9 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 	-- 2 = Set Section Box To The Right
 
 	local sections = {
-		Section1 = tabs.Tab1:AddSection("Section1", 1),
+		Section1 = tabs.Tab1:AddSection("Main", 1),
 		Section2 = tabs.Tab1:AddSection("Section2", 2),
+		Section3 = tabs.Tab1:AddSection("Section3", 3),
 	}
 
 	sections.Section1:AddSeparator({
@@ -256,12 +257,12 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 		end
 	})
 
-	sections.Section1:AddSeparator({
+	sections.Section3:AddSeparator({
 		text = "Streamer Mode"
 	})
 
 
-	sections.Section1:AddToggle({
+	sections.Section3:AddToggle({
 		enabled = true,
 		text = "Hide Name",
 		flag = "Toggle_1",
@@ -270,14 +271,12 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 		callback = function(lol)
 			if lol then
 				Player.leaderstats.Hidden.Value = true
-				if not Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible then
-					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = true
-				end
-			else
-				if not lol then
-					Player.leaderstats.Hidden.Value = false
+				if lol and Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false then
 					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false
 				end
+			elseif not lol then
+				Player.leaderstats.Hidden.Value = false
+				Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = true
 			end
 		end
 	})
