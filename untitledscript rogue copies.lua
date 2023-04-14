@@ -17,7 +17,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 library:init() -- Initalizes Library Do Not Delete This
 
 
-if gamePlaceId == 8651781069 and game.PlaceID == 8651781069 then
+if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	local Window = library.NewWindow({
 		title = "untitled hub private",
 		size = UDim2.new(0, 525, 0, 650)
@@ -58,7 +58,7 @@ if gamePlaceId == 8651781069 and game.PlaceID == 8651781069 then
 	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
-	print("Test")
+
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 
 elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
@@ -284,9 +284,8 @@ elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 	})
 	library:SendNotification("RL: Richest Minion: Gaia: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gamePlaceId == 9978746069 and game.PlaceId ~= gamePlaceId then
-	print("test")
 	library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
 	setclipboard("niggarqtest")
 end
 
-	--Window:SetOpen(true) -- Either Close Or Open Window
+--Window:SetOpen(true) -- Either Close Or Open Window
