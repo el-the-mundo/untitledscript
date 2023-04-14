@@ -64,7 +64,7 @@ elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
 	
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 
-elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
+elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 	local Window = library.NewWindow({
 		title = "untitled hub private",
 		size = UDim2.new(0, 525, 0, 650)
@@ -286,7 +286,7 @@ elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 		end
 	})
 	library:SendNotification("RL: Richest Minion: Gaia: Loaded!", 5, Color3.new(255, 0, 0))
-elseif gamePlaceId == 9978746069 and game.PlaceId ~= gamePlaceId then
+elseif gamePlaceId == 10046661315 and game.PlaceId ~= gamePlaceId then
 	library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
 	setclipboard("niggarqtest")
 end
