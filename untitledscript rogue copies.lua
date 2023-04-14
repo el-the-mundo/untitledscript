@@ -1,3 +1,4 @@
+-- Credits To The Original Devs @xz, @goof
 getgenv().Config = {
 	Invite = "richminion",
 	Version = "1",
@@ -17,7 +18,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 library:init() -- Initalizes Library Do Not Delete This
 
 
-if gamePlaceID == 8651781069 then
+if gamePlaceId == 8651781069 and game.PlaceID == 8651781069 then
 	local Window = library.NewWindow({
 		title = "untitled hub private",
 		size = UDim2.new(0, 525, 0, 650)
@@ -55,10 +56,13 @@ if gamePlaceID == 8651781069 then
 				end
 			end
 		end
-	})
-		
+	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
-elseif gamePlaceID == 11412701341 then
+else
+	library:SendNotification("You are not in: Voxlblade! Copying Voxlblade Place ID...", 5, Color3.new(255, 0, 0))
+	setclipboard(8651781069)
+end
+elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 		local Window = library.NewWindow({
 			title = "untitled hub private",
 			size = UDim2.new(0, 525, 0, 650)
@@ -279,7 +283,11 @@ elseif gamePlaceID == 11412701341 then
 				end
 			end
 		})
-	library:SendNotification("RL: Richest Minion: Loaded!", 5, Color3.new(255, 0, 0))
+	library:SendNotification("RL: Richest Minion: Gaia: Loaded!", 5, Color3.new(255, 0, 0))
+	else
+		library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
+		setclipboard("niggarqtest")
+	end
 end
 
 
