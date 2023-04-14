@@ -274,9 +274,12 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 				if lol and Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false then
 					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false
 				end
-			elseif not lol then
+			else
+			if not lol then
 				Player.leaderstats.Hidden.Value = false
 				Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = true
+		
+				end
 			end
 		end
 	})
