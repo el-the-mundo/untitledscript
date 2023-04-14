@@ -61,7 +61,6 @@ if gamePlaceId == 8651781069 and game.PlaceID == 8651781069 then
 else
 	library:SendNotification("You are not in: Voxlblade! Copying Voxlblade Place ID...", 5, Color3.new(255, 0, 0))
 	setclipboard(8651781069)
-end
 elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 		local Window = library.NewWindow({
 			title = "untitled hub private",
@@ -287,7 +286,6 @@ elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 	else
 		library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
 		setclipboard("niggarqtest")
-	end
 end
 
 
