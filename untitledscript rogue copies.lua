@@ -58,7 +58,7 @@ if gamePlaceId == 8651781069 and game.PlaceID == 8651781069 then
 	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
-	
+	print("Test")
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 
 elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
@@ -284,6 +284,7 @@ elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 	})
 	library:SendNotification("RL: Richest Minion: Gaia: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gamePlaceId == 9978746069 and game.PlaceId ~= gamePlaceId then
+	print("test")
 	library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
 	setclipboard("niggarqtest")
 end
