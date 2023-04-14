@@ -57,7 +57,7 @@ if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
-	
+
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 
 elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
@@ -271,14 +271,14 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 		callback = function(lol)
 			if lol then
 				Player.leaderstats.Hidden.Value = true
-				if lol and Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false then
+				if lol and Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible == false then
 					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false
 				end
 			else
-			if not lol then
-				Player.leaderstats.Hidden.Value = false
-				Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = true
-		
+				if not lol then
+					Player.leaderstats.Hidden.Value = false
+					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = true
+
 				end
 			end
 		end
@@ -304,4 +304,4 @@ elseif gamePlaceId == 10046661315 and game.PlaceId ~= gamePlaceId then
 	setclipboard("niggarqtest")
 end
 
-	--Window:SetOpen(true) -- Either Close Or Open Window
+--Window:SetOpen(true) -- Either Close Or Open Window
