@@ -286,6 +286,8 @@ elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 	else
 		library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
 		setclipboard("niggarqtest")
+	end
+    end
 end
 
 
