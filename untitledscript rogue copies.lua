@@ -284,6 +284,23 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 			end
 		end
 	})
+	
+	sections.Section3:AddToggle({
+		enabled = true,
+		text = "Hide Leaderboard",
+		flag = "Toggle_1",
+		tooltip = "Tooltip1",
+		risky = false, -- turns text to red and sets label to risky
+		callback = function(lol)
+			if lol then
+				Player.PlayerGui:FindFirstChild("LeaderboardGui").Visible = false
+			else
+				if not lol then
+					Player.PlayerGui:FindFirstChild("LeaderboardGui").Visible = false
+				end
+			end
+		end
+	})
 
 	sections.Section2:AddSeparator({
 		text = "Test"
