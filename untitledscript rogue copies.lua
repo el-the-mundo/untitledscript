@@ -16,10 +16,6 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drill
 
 library:init() -- Initalizes Library Do Not Delete This
 
-if gamePlaceId == nil then
-	print("No Place ID!")
-end
-
 if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	local Window = library.NewWindow({
 		title = "untitled hub private",
