@@ -33,7 +33,7 @@ if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	local sections = {
 		Section1 = tabs.Tab1:AddSection("Main", 1),
 		Section2 = tabs.Tab1:AddSection("Section2", 2),
-		Section3 = tabs.Tab1:AddSection("Section3", 3),
+		Section3 = tabs.Tab1:AddSection("Streaming", 3),
 	}
 
 	sections.Section1:AddSeparator({
