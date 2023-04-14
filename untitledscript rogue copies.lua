@@ -281,6 +281,21 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 			end
 		end
 	})
+
+	sections.Section2:AddSeparator({
+		text = "Test"
+	})
+
+	sections.Section2:AddToggle({
+		enabled = true,
+		text = "Proximity Promt",
+		flag = "Toggle_1",
+		tooltip = "Tooltip1",
+		risky = false, -- turns text to red and sets label to risky
+		callback = function(lol)
+			print("Lol")
+		end
+	})
 	library:SendNotification("RL: Richest Minion: Gaia: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gamePlaceId == 10046661315 and game.PlaceId ~= gamePlaceId then
 	library:SendNotification("You are not in: RL: Richest Minion: Gaia! Copying PlaceId to clipboard...", 5, Color3.new(255, 0, 0))
