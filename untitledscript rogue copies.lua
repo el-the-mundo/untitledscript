@@ -1,4 +1,3 @@
--- Credits To The Original Devs @xz, @goof
 getgenv().Config = {
 	Invite = "richminion",
 	Version = "1",
