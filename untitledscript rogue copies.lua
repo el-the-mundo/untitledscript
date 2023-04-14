@@ -58,7 +58,7 @@ if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
-
+	
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 
 elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
@@ -288,4 +288,4 @@ elseif gamePlaceId == 9978746069 and game.PlaceId ~= gamePlaceId then
 	setclipboard("niggarqtest")
 end
 
---Window:SetOpen(true) -- Either Close Or Open Window
+	--Window:SetOpen(true) -- Either Close Or Open Window
