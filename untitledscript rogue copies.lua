@@ -59,7 +59,7 @@ if gamePlaceID == 8651781069 then
 	})
 		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
-elseif gamePlaceID == 9978746069 then
+elseif gamePlaceID == 11412701341 then
 		local Window = library.NewWindow({
 			title = "untitled hub private",
 			size = UDim2.new(0, 525, 0, 650)
