@@ -271,7 +271,7 @@ elseif gamePlaceId == 10046661315 and game.PlaceId == 10046661315 then
 		callback = function(lol)
 			if lol then
 				Player.leaderstats.Hidden.Value = true
-				if lol and Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible == false then
+				if Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible == true then
 					Player.PlayerGui:FindFirstChild("StatGui").Container.CharacterName.Visible = false
 				end
 			else
