@@ -58,9 +58,13 @@ if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then
 	})		
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
 elseif gameplaceId == 8651781069 and game.PlaceId ~= gameplaceId then
-	
+	local Window = library.NewWindow({
+		title = "untitled hub private",
+		size = UDim2.new(0, 0, 0, 0)
+	})
 	library:SendNotification("Voxlblade: Loaded!", 5, Color3.new(255, 0, 0))
-
+	
+	Window:Destroy()
 elseif gamePlaceId == 9978746069 and game.PlaceId == 9978746069 then
 	local Window = library.NewWindow({
 		title = "untitled hub private",
