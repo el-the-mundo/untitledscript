@@ -12,7 +12,7 @@ local Player = game.Players.LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 getgenv().walkSpeedToggle = false
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/drillygzzly/Other/main/Lmao.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/el-the-mundo/informant.wtf-source-edited/0465bd7770347addbe6a03fa246846950a9bb528/source.lua"))()
 
 library:init() -- Initalizes Library Do Not Delete This
 
