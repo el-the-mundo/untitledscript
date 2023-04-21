@@ -9,7 +9,7 @@ local Notif = library:InitNotifications()
 
 for i = 0,0 do
   task.wait(0.05)
-  local LoadingXSX = Notif:Notify("Loading Untitled Hub, please be patient.", 3, "information") -- notification, alert, error, success, information
+  local LoadingXSX = Notif:Notify("Loading Untitled Hub.", 3, "information") -- notification, alert, error, success, information
 end
 
 if gamePlaceId == 8651781069 and game.PlaceId == 8651781069 then 
