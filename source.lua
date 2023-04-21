@@ -126,7 +126,7 @@ getgenv().espSize = 15
   local tu = nil
 
 
-function addToESP(Target, TargetLocation)
+function addToESP(Target, TargetLocation, isOn)
 	local ESPDrawing = Drawing.new("Text")
 	ESPDrawing.Visible = false
 	ESPDrawing.Center = true
@@ -155,24 +155,32 @@ function addToESP(Target, TargetLocation)
         end)
 	end
 	coroutine.wrap(UpdateESP)()
+
+  if not isOn then
+    ESPDrawing:Remove()
+  end
 end
 
   local MobESP = ESPTab:NewToggle("Enable Mob ESP", false, function(value)
   local vers = value and "on" or "off"
   if vers == "on" then
-    repeat  for i, mob in pairs(workspace.NPCS:GetChildren()) do
-      if mob:IsA("MeshPart") then
-        coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
-      end
-  end
+    disconnectESP = false
+        for i, mob in pairs(workspace.NPCS:GetChildren()) do
+            if mob:IsA("MeshPart") then
+              coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, true)
+            end
+        end
 
-  workspace.NPCS.ChildAdded:Connect(function(mob)
-      if mob:IsA("MeshPart") then
-          coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
-      end
-  end)
-    until vers == "off"
-
+        workspace.NPCS.ChildAdded:Connect(function(mob)
+            if mob:IsA("MeshPart") then
+                coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, true)
+            end
+        end)
+        
+    else
+        if vers == "off" then
+          coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, false)
+        end
     end
 end)
 
