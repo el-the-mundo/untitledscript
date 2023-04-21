@@ -136,7 +136,12 @@ function addToESP(Target, TargetLocation, isOn)
     ESPDrawing.Size = espSize
 	ESPDrawing.Font = espFont
 
+  if not isOn then
+    ESPDrawing:Remove()
+  end
+
 	local function UpdateESP()
+    if not isOn then return end
 		tu = game:GetService("RunService").RenderStepped:Connect(function()
 			if Target and TargetLocation:FindFirstChild(Target.Name) then
 				local TargetPosition, Target_Onscreen = Camera:WorldToViewportPoint(Target.Position)
@@ -156,9 +161,7 @@ function addToESP(Target, TargetLocation, isOn)
 	end
 	coroutine.wrap(UpdateESP)()
 
-  if not isOn then
-    ESPDrawing:Remove()
-  end
+  
 end
 
   local MobESP = ESPTab:NewToggle("Enable Mob ESP", false, function(value)
