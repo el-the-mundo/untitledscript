@@ -126,7 +126,7 @@ getgenv().espSize = 15
   local tu = nil
 
 
-function addToESP(Target, TargetLocation, isOn)
+function addToESP(Target, TargetLocation)
 	local ESPDrawing = Drawing.new("Text")
 	ESPDrawing.Visible = false
 	ESPDrawing.Center = true
@@ -136,12 +136,7 @@ function addToESP(Target, TargetLocation, isOn)
     ESPDrawing.Size = espSize
 	ESPDrawing.Font = espFont
 
-  if not isOn then
-    ESPDrawing:Remove()
-  end
-
 	local function UpdateESP()
-    if not isOn then return end
 		tu = game:GetService("RunService").RenderStepped:Connect(function()
 			if Target and TargetLocation:FindFirstChild(Target.Name) then
 				local TargetPosition, Target_Onscreen = Camera:WorldToViewportPoint(Target.Position)
@@ -170,19 +165,19 @@ end
     disconnectESP = false
         for i, mob in pairs(workspace.NPCS:GetChildren()) do
             if mob:IsA("MeshPart") then
-              coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, true)
+              coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
             end
         end
 
         workspace.NPCS.ChildAdded:Connect(function(mob)
             if mob:IsA("MeshPart") then
-                coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, true)
+                coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
             end
         end)
         
     else
         if vers == "off" then
-          coroutine.wrap(addToESP)(mob, game.Workspace.NPCS, false)
+          tu:disconnect()
         end
     end
 end)
