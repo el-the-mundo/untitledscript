@@ -160,23 +160,19 @@ end
   local MobESP = ESPTab:NewToggle("Enable Mob ESP", false, function(value)
   local vers = value and "on" or "off"
   if vers == "on" then
-    disconnectESP = false
-        for i, mob in pairs(workspace.NPCS:GetChildren()) do
-            if mob:IsA("MeshPart") then
-              coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
-            end
-        end
+    repeat  for i, mob in pairs(workspace.NPCS:GetChildren()) do
+      if mob:IsA("MeshPart") then
+        coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
+      end
+  end
 
-        workspace.NPCS.ChildAdded:Connect(function(mob)
-            if mob:IsA("MeshPart") then
-                coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
-            end
-        end)
-        
-    else
-        if vers == "off" then
-            disconnectESP = true
-        end
+  workspace.NPCS.ChildAdded:Connect(function(mob)
+      if mob:IsA("MeshPart") then
+          coroutine.wrap(addToESP)(mob, game.Workspace.NPCS)
+      end
+  end)
+    until vers == "off"
+
     end
 end)
 
