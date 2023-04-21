@@ -1,5 +1,3 @@
-getgenv().gamePlaceId = 8651781069
-
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/el-the-mundo/xsx-source-edited/main/source.lua"))()
 
 --variable stuff
