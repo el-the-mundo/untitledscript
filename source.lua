@@ -556,16 +556,18 @@ getgenv().autoFarm = false
  
             fallDamageRemote.Name = "v"
            end
-        else
-          local fallDamageRemote = Character.CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage")
-          if fallDamageRemote then
-            if falldamageEvent:FindFirstChild("ApplyFallDamage") then
-             falldamageEvent.Name = falldamageEvent.ApplyFallDamage.Name
-             falldamageEvent.ApplyFallDamage:Destroy()
-            end
+       
+       if vers == "off" then       
+        local fallDamageRemote = Character.CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage")
+        if fallDamageRemote then
+          if falldamageEvent:FindFirstChild("ApplyFallDamage") then
+           falldamageEvent.Name = falldamageEvent.ApplyFallDamage.Name
+           falldamageEvent.ApplyFallDamage:Destroy()
           end
         end
-    end)
+        end
+      end
+  end)
   
   local AutoFarmToggle = MainTab:NewToggle("Enable Auto-Farm", false, function(value)
   local vers = value and "on" or "off"
