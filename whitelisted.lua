@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 return = {
   "000917efb445a470c0407f39f0b52b2682b9c3e7aa7211dd446b7775d1228be049333ec645ea5f69a47701179afa3a33afe0f794b16c5bc818257387250d2c41";   
 }
+=======
+return = {
+  "";   
+}
+>>>>>>> 89215370d03baf30a1d0a1fe9eca67b5d7d53840
