@@ -350,6 +350,213 @@ getgenv().autoFarm = false
   local vers = value and "on" or "off"
   print("two " .. vers)
   end):AddKeybind(Enum.KeyCode.LeftControl)
+
+  local Toggle2 = PlayerTab:NewToggle("Enable No-Fall", false, function(value)
+    local vers = value and "on" or "off"
+        if vers == "on" then
+           local fallDamageRemote = Character.CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage")
+           local oldName
+           if fallDamageRemote then
+            oldName = Instance.new("Folder")
+            oldName.Parent = fallDamageRemote
+            oldName.Name = fallDamageRemote.Name
+ 
+            fallDamageRemote.Name = "v"
+           end
+        else
+          local fallDamageRemote = Character.CharacterHandler.Remotes:FindFirstChild("ApplyFallDamage")
+          if fallDamageRemote then
+            if falldamageEvent:FindFirstChild("ApplyFallDamage") then
+             falldamageEvent.Name = falldamageEvent.ApplyFallDamage.Name
+             falldamageEvent.ApplyFallDamage:Destroy()
+            end
+          end
+        end
+    end)
+  
+  local AutoFarmToggle = MainTab:NewToggle("Enable Auto-Farm", false, function(value)
+  local vers = value and "on" or "off"
+  local farm = nil
+  if vers == "on" then
+      end
+  end)
+
+  local Camera = workspace.CurrentCamera
+  local runService = game:GetService("RunService")
+  local tu = nil
+
+
+function addToESP1(Target, TargetLocation)
+	local ESPDrawing = Drawing.new("Text")
+	ESPDrawing.Visible = false
+	ESPDrawing.Center = true
+	ESPDrawing.Outline = true
+	ESPDrawing.Color = Color3.fromRGB(159, 115, 255)
+	ESPDrawing.Text = Target.Name
+    ESPDrawing.Size = espSize
+	ESPDrawing.Font = espFont
+
+	local function UpdateESP()
+		tu = game:GetService("RunService").RenderStepped:Connect(function()
+			if Target and TargetLocation:FindFirstChild(Target.Name) then
+				local TargetPosition, Target_Onscreen = Camera:WorldToViewportPoint(Target.Position)
+				if Target_Onscreen then
+					ESPDrawing.Position = Vector2.new(TargetPosition.X, TargetPosition.Y)
+					ESPDrawing.Visible = true
+				else
+					ESPDrawing.Visible = false
+				end
+			else
+				if Target.Name == nil then
+					tu:Disconnect()
+				end
+				ESPDrawing.Visible = false
+			end
+        end)
+	end
+	coroutine.wrap(UpdateESP)()
+end
+
+  local ItemESP = ESPTab:NewToggle("Enable Item ESP", false, function(value)
+  local vers = value and "on" or "off"
+  if vers == "on" then
+        for i, item in pairs(workspace.Item:GetChildren()) do
+             coroutine.wrap(addToESP1)(item, game.Workspace.Item)
+        end
+
+        workspace.Item.ChildAdded:Connect(function(item)
+             coroutine.wrap(addToESP1)(item, game.Workspace.Item)
+        end)
+    end
+end)
+
+local ESPFontSize = ESPTab:NewSlider("ESP Font Size", "", true, "/", {min = 1, max = 50, default = 1}, function(value)
+    espSize = value
+end)
+
+local espFontthing = ESPTab:NewTextbox("ESP Font", "", "(ONLY NUMBERS)", "all", "small", true, false, function(val)
+    espFont = tonumber(val)
+end)
+
+
+  local Button1 = Tab1:NewButton("Button", function()
+  print("one")
+  end)
+
+  --SettingsTab
+
+  local SettingsTab = Init:NewTab("Settings")
+  local SettingsSection = SettingsTab:NewSection("Settings")
+
+
+  local CopyGameIDButton = SettingsTab:NewButton("Copy PlaceId", function()
+  library:Copy(game.PlaceId)
+  end)
+
+  local CopyGameIDButton = SettingsTab:NewButton("Rejoin", function()
+  library:Rejoin()
+  end)
+
+  local MenuBind = SettingsTab:NewKeybind("Menu Toggle Bind", Enum.KeyCode.RightAlt, function(key)
+  Init:UpdateKeybind(Enum.KeyCode[key])
+  end)
+
+  local Textbox1 = SettingsTab:NewTextbox("Set FPS Cap [500 Max]", "", "1-500", "all", "small", true, false, function(val)
+  if typeof(val) == "number" then
+    library:UnlockFps(val)
+  else
+    return Notif:Notify("Input has to be a number!", 5)
+  end
+  end)
+
+  local WMToggle = SettingsTab:NewToggle("Toggle Watermark", true, function(value)
+  local vers = value and "on" or "off"
+  if vers == "off" then
+    Wm:Hide()
+  else
+    Wm:Show()
+  end
+  end)
+
+  local ToggleFPSCounter = SettingsTab:NewToggle("Toggle FPS Counter", true, function(value)
+  local vers = value and "on" or "off"
+  if vers == "off" then
+    FpsWm:Hide()
+  else
+    FpsWm:Show()
+  end
+  end)
+
+
+  local Textbox1 = Tab1:NewTextbox("Text box 1 [auto scales // small]", "", "1", "all", "small", true, false, function(val)
+  print(val)
+  end)
+
+  local Textbox2 = Tab1:NewTextbox("Text box 2 [medium]", "", "2", "all", "medium", true, false, function(val)
+  print(val)
+  end)
+
+  local Textbox3 = Tab1:NewTextbox("Text box 3 [large]", "", "3", "all", "large", true, false, function(val)
+  print(val)
+  end)
+
+  local Selector1 = Tab1:NewSelector("Selector 1", "bungie", {"fg", "fge", "fg", "fg"}, function(d)
+  print(d)
+  end):AddOption("fge")
+
+  local Slider1 = Tab1:NewSlider("Slider 1", "", true, "/", {min = 1, max = 100, default = 20}, function(value)
+  print(value)
+  end)
+
+  local FinishedLoading = Notif:Notify("Sakura Stand: Loaded!", 5)
+elseif gamePlaceId == 8534845015 and game.PlaceId ~= 8534845015 then
+  return Notif:Notify("You are not in: Sakura Stand!", 5)
+elseif gamePlaceId == 9978746069 and game.PlaceId ~= 9978746069 then
+  --variables
+local Player = game.Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+getgenv().espFont = 2
+getgenv().espSize = 18
+getgenv().autoFarm = false
+    
+  library:Introduction()
+  wait(1)
+  library.rank = "Private"
+  local Wm = library:Watermark("Untitled Hub | v" .. uiversion ..  " | " .. library:GetUsername() .. " | Rank: " .. library.rank)
+  local FpsWm = Wm:AddWatermark("FPS: " .. library.fps)
+  coroutine.wrap(function()
+  while wait(.75) do
+    FpsWm:Text("FPS: " .. library.fps)
+  end
+  end)()
+
+  library.title = "Untitled Hub"
+  local Init = library:Init()
+  local Tab1 = Init:NewTab("Example tab")
+  local MainTab = Init:NewTab("Main")
+  local PlayerTab = Init:NewTab("Player")
+  local ESPTab = Init:NewTab("ESP")
+
+
+  local Section1 = Tab1:NewSection("Example Components")
+  local PlayerSection = PlayerTab:NewSection("Player")
+  local MainSection = MainTab:NewSection("Main")
+  local ESPSection = ESPTab:NewSection("ESP")
+
+
+  local Label1 = Tab1:NewLabel("Example label", "left")--"left", "center", "right"
+  local PlayerLabel1 = PlayerTab:NewLabel("Player Modification", "left")--"left", "center", "right"
+  local MainLabel1 = MainTab:NewLabel("Farms", "left")--"left", "center", "right"
+  local ESPSettingsLabel = ESPTab:NewLabel("ESP Settings", "left")--"left", "center", "right"
+  local Toggle1 = Tab1:NewToggle("Example toggle", false, function(value)
+  local vers = value and "on" or "off"
+  print("one " .. vers)
+  end):AddKeybind(Enum.KeyCode.RightControl)
+
+  local Toggle2 = Tab1:NewToggle("Toggle", false, function(value)
+  local vers = value and "on" or "off"
+  print("two " .. vers)
+  end):AddKeybind(Enum.KeyCode.LeftControl)
   
   local AutoFarmToggle = MainTab:NewToggle("Enable Auto-Farm", false, function(value)
   local vers = value and "on" or "off"
